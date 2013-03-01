@@ -1,0 +1,41 @@
+/**
+ * =====================================================================================================================
+ * Styles for link savin' form
+ */
+#linkForm .well {
+	background-color: #eee;
+}
+
+/**
+ * =====================================================================================================================
+ * Styles for Link Card
+ */
+.linkCard:hover {
+	-moz-box-shadow: #aaa 1px 1px 4px;
+}
+.linkCard {
+	background-color: #fff;
+}
+.linkCard a {
+    display: block;
+	text-decoration: none;
+}
+.linkCard .title a:hover {
+	color: red;
+	text-decoration: underline;
+}
+.linkCard .logo {
+	background-color: #eee;
+}
+.linkCard .title {
+	font-size: 1.2em;
+}
+.linkCard .link {
+}
+.linkCard .saving {
+	display: none;
+	font-size: 0.8em;
+}
+.linkCard.unsaved .saving {
+	display: block;
+}

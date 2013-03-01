@@ -1,0 +1,64 @@
+/**
+ * =====================================================================================================================
+ * Styles for link savin' form
+ */
+#linkForm {
+	margin: 5% 20% 3% 20%;
+	white-space: nowrap;
+	min-width: 300px;
+	height: 45px;
+	text-align: center;
+}
+#linkForm form {
+	margin: 10px;
+}
+#linkForm input {
+	min-width: 45px;
+	width: 8%;
+}
+#linkForm input,
+#linkForm label {
+	font-size: 1.5em;
+}
+#linkForm #link {
+	min-width: 100px;
+	width: 85%;
+}
+
+/**
+ * =====================================================================================================================
+ * Styles for Link Card
+ */
+.linkCard td {
+	padding: 0.5em;
+}
+.linkCard .logo {
+	pading: 0 0.5em 0 0;
+	text-align: center;
+	vertical-align: middle;
+}
+.linkCard .img {
+	height: 16px;
+	margin-right: 5px;
+	width: 16px;
+}
+.linkCard .title {
+	margin-right: 5px;
+}
+.linkCard .link {
+	padding-top: 4px;
+	white-space: nowrap;
+}
+.linkCard .panel {
+	text-align: right;
+}
+
+/**
+ * =====================================================================================================================
+ * Styles for Card Container
+ */
+#linkCardContainer {
+	padding: 1em;
+	margin: 0 5%;
+	width: 90%;
+}

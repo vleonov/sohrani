@@ -1,0 +1,1 @@
+<input type="password" {foreach from=$params key=k item=v}{if $k!="value"}{$k}="{$v}" {/if}{/foreach}>

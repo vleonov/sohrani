@@ -1,0 +1,12 @@
+<?php
+// DSN ��� ��� ������
+define ('DSN', 'mysql:host=localhost;dbname=fomix;user=pixelheart;password=pixelnm8hk2');
+
+define ("ROOT_URL", "http://".$_SERVER["HTTP_HOST"]."/");
+
+// ������� ��������� ����
+ini_set('date.timezone','Asia/Novosibirsk');
+
+define ('PHP_COMMAND', 'php');
+
+?>

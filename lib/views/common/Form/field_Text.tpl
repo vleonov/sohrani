@@ -1,0 +1,1 @@
+<textarea {foreach from=$params key=k item=v}{$k}="{$v}" {/foreach}>{$params.value|default:""}</textarea>
