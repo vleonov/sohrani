@@ -38,7 +38,7 @@ var Forms = {
 			 type: "POST",
 			 data: {link: link},
 			 success: function(data) {
-				 Card.read(data, 'linkCardNew');
+				 Card.read(data.id, 'linkCardNew');
 			 }
 		 });
 
@@ -69,9 +69,8 @@ var Forms = {
 var Card = {
 	read: function(id, prevCard) {
 		 $.ajax({
-			 url: "/ajax/card/read/",
-			 type: "POST",
-			 data: {id: id},
+			 url: "/ajax/card/read/" + id,
+			 type: "GET",
 			 success: function(data){
 				var existed = $('#linkCard'+id);
 				if (existed.length) {

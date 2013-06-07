@@ -1,1 +1,0 @@
-<input type="text" {foreach from=$params key=k item=v}{$k}="{$v}" {/foreach}>

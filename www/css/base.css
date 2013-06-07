@@ -9,6 +9,12 @@ html, body {
 	margin: 0;
 	padding: 0;
 }
+body {
+    padding-top: 30px;
+}
+.container-fluid {
+    padding-top: 15px;
+}
 a {
 	color: #696969;
 }

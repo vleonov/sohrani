@@ -1,11 +1,11 @@
-DirectoryIndex index.html router.php
+DirectoryIndex index.html index.php
 
 AddDefaultCharset utf-8
 
 RewriteEngine On
 RewriteBase /
 
-RewriteCond %{REQUEST_METHOD} ^(TRACE|TRACK|OPTIONS|HEAD) 
+RewriteCond %{REQUEST_METHOD} ^(TRACE|TRACK|OPTIONS|HEAD)
 RewriteRule .* - [F]
 
 # autoslashes
@@ -13,7 +13,7 @@ RewriteCond %{REQUEST_URI} (.*/[^/.]+)($|\?)
 RewriteRule .* %1/ [R,L,QSA]
 
 # allowed
-RewriteCond %{REQUEST_URI} ^/(js|i|css|(apc|img|locale|auth)\.php)/$
+RewriteCond %{REQUEST_URI} ^/(js|img|css|(apc|img|locale|auth)\.php)/$
 RewriteRule . - [L]
 
 # blocked
@@ -23,7 +23,7 @@ RewriteRule . - [F]
 # dispatch
 RewriteCond %{REQUEST_FILENAME} !-f
 RewriteCond %{REQUEST_FILENAME} !-d
-RewriteRule ^(.*) router.php [L,QSA]
+RewriteRule ^(.*) index.php [L,QSA]
 
 # PHP Options
 php_value default_charset utf-8
