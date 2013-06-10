@@ -1,4 +1,4 @@
-config.dev.php
+config.php
 var/compiled/
 var/log/
 var/tmp/

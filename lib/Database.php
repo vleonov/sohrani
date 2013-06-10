@@ -12,9 +12,9 @@ class Database {
      */
     static protected $_instance;
 
-    protected function __construct($dsn, $user)
+    protected function __construct($dsn, $user, $password)
     {
-        $this->_connection = new PDO($dsn, $user);
+        $this->_connection = new PDO($dsn, $user, $password);
         $this->_connection->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
         $this->_connection->setAttribute(PDO::ATTR_DEFAULT_FETCH_MODE, PDO::FETCH_ASSOC);
         $this->_connection->exec('SET NAMES "UTF8"');
@@ -22,8 +22,14 @@ class Database {
 
     public static function get()
     {
+        $dbConfig = Config()->db;
         if (!self::$_instance) {
-            self::$_instance = new self('mysql:host=localhost;dbname=sohrani', 'root');
+            $dsn = sprintf(
+                'mysql:host=%s;dbname=%s',
+                $dbConfig['host'],
+                $dbConfig['name']
+            );
+            self::$_instance = new self($dsn, $dbConfig['user'], $dbConfig['password']);
         }
 
         return self::$_instance;
