@@ -11,8 +11,11 @@ class Router {
         if (is_null($uri)) {
             $uri = U_Url::path();
         }
+        
+        $base = U_Misc::is(Config()->base[U_Url::host()], '');
         $uri = trim(trim($uri), '/');
-        $this->_uri = $uri ? '/' . $uri . '/' : '/';
+
+	$this->_uri = preg_replace('~^' . $base . '~', '', ($uri ? '/' . $uri . '/' : '/'));
 
         $this->_routes = include(ROOT_DIR . '/etc/routes.php');
     }

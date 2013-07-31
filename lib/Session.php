@@ -15,7 +15,7 @@ class Session
 
     protected function __construct()
     {
-//        session_start();
+        session_start();
     }
 
     public static function getInstance()

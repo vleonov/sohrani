@@ -1,5 +1,4 @@
 <?php
-
 include dirname(__FILE__) . '/../lib/__init.php';
 
 $oRouter = new Router();

@@ -4,7 +4,15 @@ class U_Url
 {
     public static function host($url = null)
     {
-        return self::_part($url, PHP_URL_HOST);
+        return U_Misc::is($_SERVER['HTTP_HOST']);
+    }
+    
+    public static function base()
+    {
+	$host = self::host();
+	$base = '//' . $host . U_Misc::is(Config()->base[$host], '');
+	
+	return $base;
     }
 
     public static function query($url = null)

@@ -18,7 +18,7 @@ class U_GAuth
 
     public static function login()
     {
-        $backUri = '/';//Request()->get('state') ? base64_decode(Request()->get('state')) : '/';
+        $backUri = U_Url::base();//Request()->get('state') ? base64_decode(Request()->get('state')) : '/';
         if (Request()->get('error')) {
             return $backUri;
         }
@@ -28,27 +28,27 @@ class U_GAuth
         $gApi = self::_getGAuthClient();
         $gApi->setClientSecret(Config()->auth['gAuth']['clientSecret']);
 
-        try {
+	try {        
+        
+    	    if (!$code || !$gApi->authenticate($code)) {
+        	return $backUri;
+    	    }
 
-            if (!$code || !$gApi->authenticate($code)) {
-                return $backUri;
-            }
+	    $accessToken = $gApi->getAccessToken();
 
-            $accessToken = $gApi->getAccessToken();
-
-            $gApiService = self::_getGAuthClient();
-            $gApiService->setClientSecret(Config()->auth['gAuth']['clientSecret']);
-            $gApiService->setDeveloperKey(Config()->auth['gAuth']['developerKey']);
-
+	    $gApiService = self::_getGAuthClient();
+    	    $gApiService->setClientSecret(Config()->auth['gAuth']['clientSecret']);
+    	    $gApiService->setDeveloperKey(Config()->auth['gAuth']['developerKey']);
+        
             $oauth2 = new Google_Oauth2Service($gApiService);
             $gApiService->setAccessToken($accessToken);
             $userInfo = $oauth2->userinfo->get();
         } catch (Google_AuthException $e) {
-            return $backUri;
+    	    return $backUri;
         }
-
+        
         if ($userInfo['email'] != Config()->auth['login']) {
-            return $backUri;
+    	    return $backUri;
         }
 
         $hash = md5(Session()->id() . self::$_salt . $code);
@@ -77,6 +77,7 @@ class U_GAuth
         }
 
         $code = Session()->get('gauthCode');
+        
         return $hash == md5(Session()->id() . self::$_salt . $code);
     }
 
@@ -85,9 +86,9 @@ class U_GAuth
         $gApi = new Google_Client();
 
         $gApi->setClientId(Config()->auth['gAuth']['clientId']);
-        $gApi->setRedirectUri(PROJECT_HOST . '/login/gauth');
+        $gApi->setRedirectUri('http:' . U_Url::base() . '/login/gauth');
         $gApi->setScopes(array('https://www.googleapis.com/auth/userinfo.email https://www.googleapis.com/auth/userinfo.profile'));
-        $gApi->setState(base64_encode(Request()->backUrl() ? Request()->backUrl() : '/'));
+        $gApi->setState(base64_encode(U_Url::base()));
 
         return $gApi;
     }

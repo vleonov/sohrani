@@ -91,14 +91,14 @@ class Response
         $expire = time() + ($expire ? $expire : 365 * 24 * 60 * 60);
         $path = $path ? $path : '/';
 
-        setcookie($key, $value, $expire, $path, PROJECT_DOMAIN);
+        setcookie($key, $value, $expire, $path, U_Url::host());
 
         return $this;
     }
 
     public function delCookie($key)
     {
-        setcookie($key, '', -1, '/', PROJECT_DOMAIN);
+        setcookie($key, '', -1, '/', 'http://' . U_Url::host());
 
         return $this;
     }
