@@ -11,6 +11,7 @@ class C_Main extends Controller
             ->assign(
                 array(
                      'cards' => $lCards,
+                     'nullCard' => new M_Card(),
                 )
             )->fetch('index.tpl');
 

@@ -1,2 +1,4 @@
-User-agent: *
-Disallow: /ajax/
+User-Agent: TwitterBot
+Disallow: 
+User-Agent: *
+Disallow: /

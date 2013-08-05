@@ -34,7 +34,7 @@ var Forms = {
 		 }
 
 		 $.ajax({
-			 url: "/ajax/card/save/",
+			 url: "ajax/card/save/",
 			 type: "POST",
 			 data: {link: link},
 			 success: function(data) {
@@ -69,7 +69,7 @@ var Forms = {
 var Card = {
 	read: function(id, prevCard) {
 		 $.ajax({
-			 url: "/ajax/card/read/" + id,
+			 url: "ajax/card/read/" + id,
 			 type: "GET",
 			 success: function(data){
 				var existed = $('#linkCard'+id);

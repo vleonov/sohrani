@@ -2,7 +2,7 @@
 ================================================== -->
 <div class="navbar navbar-inverse navbar-fixed-top">
     <div class="navbar-inner">
-        <a class="brand" href="/">Sohrani.info</a>
+        <a class="brand" href="/">Sohrani</a>
         <div class="nav-collapse collapse">
             {if $Auth}
             <div id="linkForm">

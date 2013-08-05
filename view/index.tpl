@@ -3,8 +3,8 @@
 {block "content"}
 
     <table id="linkCardContainer">
-    {include file="common/_card.tpl" card=''}
-        {assign var="lazy" value=false}
+    {assign var="lazy" value=false}
+    {include file="common/_card.tpl" card=$nullCard}
     	{foreach from=$cards item=card key=i}
             {if $i>20}
                 {assign var="lazy" value=true}

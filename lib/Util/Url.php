@@ -10,7 +10,8 @@ class U_Url
     public static function base()
     {
 	$host = self::host();
-	$base = '//' . $host . U_Misc::is(Config()->base[$host], '');
+	$configBase = Config()->base;
+	$base = '//' . $host . U_Misc::is($configBase[$host], '');
 	
 	return $base;
     }

@@ -65,7 +65,7 @@ class U_GAuth
         Response()->delCookie('gauth');
         Session()->delete('gauthCode');
 
-        $backUri = Request()->backUrl('/');
+        $backUri = Request()->backUrl(U_Url::base());
         return $backUri;
     }
 
@@ -77,7 +77,6 @@ class U_GAuth
         }
 
         $code = Session()->get('gauthCode');
-        
         return $hash == md5(Session()->id() . self::$_salt . $code);
     }
 

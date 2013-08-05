@@ -1,4 +1,4 @@
-<tr class="linkCard {if empty($card->is_saved)}unsaved{/if} {if $lazy}a-lazyload{/if}" id="{if empty($card)}linkCardBlank{else}linkCard{$card->id}{/if}" title="{$card->description|default:''}">
+<tr class="linkCard {if !$card->is_saved}unsaved{/if} {if $lazy}a-lazyload{/if}" id="{if !$card->id}linkCardBlank{else}linkCard{$card->id}{/if}" title="{$card->description|default:''}">
 	<td class="img">
         {if !empty($card->site)}
             <img {if $lazy}data-src="http://{$card->site}/favicon.ico"{else}src="http://{$card->site}/favicon.ico"{/if} width="16px">
